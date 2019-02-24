@@ -13,12 +13,12 @@ public class BookManager {
 
     public List<Book> searchBook(String search) {
 
-        List<Book> listOfBooks = new ArrayList<Book>();
+        List<Book> listOfBooks = new ArrayList<>();
 
         try(
                 Connection conn = DBManager.getConnectionToDatabase();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("select * from bookstore.book where name like \'"+ search +"\'")
+                ResultSet rs = stmt.executeQuery("select * from bookstore.book where name like \'%"+ search +"%\'")
                 ){
             while (rs.next()) {
                 String name = rs.getString("name");

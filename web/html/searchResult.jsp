@@ -23,7 +23,7 @@
             List<Book> products = (ArrayList) request.getAttribute("bookList");
             for (Book product : products) {
                 response.getWriter().print("<div class=\"book\">\n" +
-                        "  <img src=\"" + product.getImage() + "\" alt=\"\" >\n" +
+                        "  <img src=\"" + product.getImage() + "\" alt=\"\" style=\"width: 250px;\">\n" +
                         "  <h1>" + product.getName() + "</h1>\n" +
                         "  <p class=\"bookSynopsis\">" + product.getSynopsis() + "</p>\n" +
                         "  <p>" + product.getDescription() + "</p>\n" +

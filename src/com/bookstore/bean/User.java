@@ -3,6 +3,7 @@ package com.bookstore.bean;
 public class User {
     private String email;
     private String password;
+    private String id;
 
     public User(){
     }
@@ -10,6 +11,20 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public User(String email, String password, String id) {
+        this.email = email;
+        this.password = password;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -29,4 +44,12 @@ public class User {
     }
 
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

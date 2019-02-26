@@ -22,7 +22,7 @@
             System.out.println("entradod a resultados");
             List<Book> products = (ArrayList) request.getAttribute("bookList");
             for (Book product : products) {
-                response.getWriter().print("<div class=\"book\">\n" +
+                out.print("<div class=\"book\">\n" +
                         "  <img src=\"" + product.getImage() + "\" alt=\"\" style=\"width: 250px;\">\n" +
                         "  <h1>" + product.getName() + "</h1>\n" +
                         "  <p class=\"bookSynopsis\">" + product.getSynopsis() + "</p>\n" +
@@ -31,7 +31,7 @@
                         "</div>");
             }
         } catch (IOException e) {
-            response.getWriter().print("Error while getting the books");
+            out.print("Error while getting the books");
             e.printStackTrace();
         }
     %>

@@ -3,16 +3,13 @@ package com.bookstore.model;
 import com.bookstore.bean.Book;
 import com.bookstore.bean.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager {
 
-    public boolean validateUser(String email,String password) {
+    public User validateUser(String email,String password) {
 
         System.out.println(email + password);
 
@@ -23,16 +20,16 @@ public class UserManager {
         ){
             if(rs.next()){
                 System.out.println(rs.getString("email"));
-                return true;
+                return new User(rs.getString("email"),rs.getString("password"),rs.getString("id"));
             }
         } catch (SQLException e) {
             System.out.println("error sql");
             e.printStackTrace();
         }
 
-        return false;
+        return null;
     }
-    public int registerUser(String email, String password) {
+    public User registerUser(String email, String password) {
 
         System.out.println(email + password);
 
@@ -40,13 +37,17 @@ public class UserManager {
                 Connection conn = DBManager.getConnectionToDatabase();
                 Statement stmt = conn.createStatement();
         ){
-            return stmt.executeUpdate("INSERT INTO bookstore.user (email,password) VALUES ('" + email + "','"+password+"')");
+            int result = stmt.executeUpdate("INSERT INTO bookstore.user (email,password) VALUES ('" + email + "','"+password+"')");
+            ResultSet rs = stmt.executeQuery("select * from bookstore.user where email = \'"+ email +"\' and password = \'" + password +"\'");
 
+            if(rs.next()){
+                return new User(rs.getString("email"),rs.getString("password"),rs.getString("id"));
+            }
         } catch (SQLException e) {
             System.out.println("error sql");
             e.printStackTrace();
         }
 
-        return -1;
+        return null;
     }
 }

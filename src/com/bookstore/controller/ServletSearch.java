@@ -24,9 +24,6 @@ public class ServletSearch extends HttpServlet {
 
         String searchBook = request.getParameter("ServletSearch") != null ? request.getParameter("ServletSearch") : "";
 
-//        System.out.println("buscnado shit con " + searchBook);
-
-//        System.out.println(books.searchBook(searchBook).toString());
         request.setAttribute("bookList",books.searchBook(searchBook));
 
             request.getRequestDispatcher("html/searchResult.jsp").forward(request,response);

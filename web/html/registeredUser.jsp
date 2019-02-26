@@ -8,12 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>logintest</title>
+    <title>Register Succeed</title>
 </head>
 <body>
-<h2>Usuario Logeado: </h2>
-    <%
-    out.print("<h1>Estatus usuario:" + request.getAttribute("valid") + "</h1>");
-    %>
+    <h1>Nuevo Usuario Agregado: </h1>
+    <h2>Estatus usuario:<% out.print(request.getAttribute("register").toString()); %> </h2>
 </body>
 </html>

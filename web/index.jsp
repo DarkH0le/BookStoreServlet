@@ -11,15 +11,15 @@
     <title>$Title$</title>
 </head>
 <body>
-<div>
+<div class="Login">
     <h2>Login</h2>
     <form action="login" method="post">
 
         <div class="container">
-            <label for="uname"><b>Username</b></label>
+            <label for="uname"><b>Email</b></label>
             <input type="text" placeholder="Enter email" name="email" required id="uname">
 
-            <label for="psw"><b>Password</b></label>
+            <label for="psw"><b>Contrasena</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
             <button type="submit">Login</button>
@@ -29,16 +29,37 @@
         </div>
         <%--Add ServletSearch box    --%>
     </form>
+</div>
 
+<div class="search">
+    <h2> Catalogo</h2>
     <form action="search" method="get">
-        <h2> Catalogo</h2>
+
         <label for="site-search">Search the site:</label>
         <input type="search" id="site-search" name="search"
-               aria-label="Search through site content" placeholder="leave blank to see all">
+               aria-label="Search through site content" placeholder="">
 
         <button>Search</button>
     </form>
 </div>
+
+<div class="register">
+    <h2>Registrar</h2>
+    <form action="register" method="post">
+
+        <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Enter email" name="email" required id="registerEmail">
+
+            <label for="psw"><b>Contraseña</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="registerPassword" required>
+
+            <button type="submit">Registrar</button>
+        </div>
+        <%--Add ServletSearch box    --%>
+    </form>
+</div>
+
 
 </body>
 </html>

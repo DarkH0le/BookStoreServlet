@@ -1,6 +1,5 @@
 package com.bookstore.controller;
 
-import com.bookstore.bean.Book;
 import com.bookstore.model.UserManager;
 
 import javax.servlet.ServletException;
@@ -17,8 +16,9 @@ public class ServletLogin extends HttpServlet {
         String password = request.getParameter("password");
         UserManager um = new UserManager();
 //        System.out.println(um.validateUser(email,password));
-        Boolean validUser = um.validateUser(email,password);
-        request.setAttribute("valid", validUser);
+//        Boolean validUser = um.registerUser(email,password);
+        int validUser = um.registerUser(email,password);
+//        request.setAttribute("valid", validUser);
 
         //TODO forward to view when get a valid user
 

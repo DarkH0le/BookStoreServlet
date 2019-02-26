@@ -27,7 +27,7 @@
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
         </div>
-        <%--Add search box    --%>
+        <%--Add ServletSearch box    --%>
     </form>
 
     <form action="search" method="get">

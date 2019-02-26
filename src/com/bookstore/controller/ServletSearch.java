@@ -12,8 +12,8 @@ import java.util.List;
 
 //TODO Rename Class to searchServlet
 
-@WebServlet(name = "search" , urlPatterns = "/search")
-public class search extends HttpServlet {
+@WebServlet(name = "ServletSearch" , urlPatterns = "/search")
+public class ServletSearch extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -22,7 +22,7 @@ public class search extends HttpServlet {
 
         BookManager books = new BookManager();
 
-        String searchBook = request.getParameter("search") != null ? request.getParameter("search") : "";
+        String searchBook = request.getParameter("ServletSearch") != null ? request.getParameter("ServletSearch") : "";
 
 //        System.out.println("buscnado shit con " + searchBook);
 

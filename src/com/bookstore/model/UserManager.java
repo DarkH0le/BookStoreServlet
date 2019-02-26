@@ -32,4 +32,21 @@ public class UserManager {
 
         return false;
     }
+    public int registerUser(String email, String password) {
+
+        System.out.println(email + password);
+
+        try(
+                Connection conn = DBManager.getConnectionToDatabase();
+                Statement stmt = conn.createStatement();
+        ){
+            return stmt.executeUpdate("INSERT INTO bookstore.user (email,password) VALUES ('" + email + "','"+password+"')");
+
+        } catch (SQLException e) {
+            System.out.println("error sql");
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
 }
